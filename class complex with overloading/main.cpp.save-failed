@@ -1,0 +1,100 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+class Complex{
+
+private :
+    double re,im;
+
+public :
+    Complex(double a=0,double b=0){
+    re=a;   im=b;
+    }
+    ~Complex(){}
+    void getdata(){
+    cout<<"enter real"; cin>>re;
+    cout<<"enter image"; cin>>im;
+    }
+    void showdata()const{
+    cout<<"enter real"<<re;
+    cout<<"enter image"<<im;
+    }
+void add(const Complex c11,const Complex c22);
+Complex sub(const Complex c22)const;
+double mag()const;
+Complex operator+(const Complex c22)const;
+Complex operator-(const Complex c22)const;
+Complex operator*(const Complex c22)const;
+void  operator =(const Complex c22);
+bool operator >(const Complex c22)const;
+bool operator <(const Complex c22)const;
+bool operator >=(const Complex c22)const;
+bool operator <=(const Complex c22)const;
+bool operator ==(const Complex c22)const;
+bool operator !=(const Complex c22)const;
+
+};
+
+
+int main()
+{
+
+    return 0;
+}
+
+
+void Complex::add(const Complex c11,const Complex c22){
+    re=c11.re+c22.re;   im=c11.im+c22.im;
+}
+
+
+Complex Complex::sub(const Complex c22)const{
+    Complex c33;
+    c33.re=re+c22.re;   c33.im=im+c22.im;
+    return c33;
+}
+
+double Complex ::mag()const{
+return sqrt(re*re+im*im);
+}
+Complex Complex::operator+(const Complex c22)const{
+Complex c33;
+ c33.re=re+c22.re;   c33.im=im+c22.im;
+return c33;
+}
+Complex Complex::operator-(const Complex c22)const{
+
+    Complex c33;
+    c33.re=re+c22.re;   c33.im=im+c22.im;
+    return c33;
+
+}
+Complex Complex::operator*(const Complex c22)const{
+Complex c33;
+c33.re=re-c22.re;   c33.im=im-c22.im;
+return c33; //maybe double x=re-c22.re; double y=im-c22.im; return complex(x,y);
+
+}
+void Complex:: operator =(const Complex c22){
+    re=c22.re;
+    im=c22.im;
+}
+bool Complex:: operator >(const Complex c22)const{
+    return (mag()>c22.mag());
+}
+bool Complex:: operator <(const Complex c22)const{
+    return (mag()<c22.mag());
+}
+bool Complex:: operator >=(const Complex c22)const{
+    return (mag()>=c22.mag());
+}
+bool Complex:: operator <=(const Complex c22)const{
+    return (mag()<=c22.mag());
+}
+bool Complex:: operator ==(const Complex c22)const{
+    return (mag()>c22.mag());
+}
+bool Complex:: operator !=(const Complex c22)const{
+    return (mag()>c22.mag());
+}
